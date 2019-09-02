@@ -15,5 +15,7 @@ class MainActivity : AppCompatActivity() {
         binding.contact = Contact("Dan Brown", "danbrown@gmail.com")
 
         binding.handler = EventHandler(this)
+
+        binding.imageUrl = "https://i.redd.it/lhw4vp5yoy121.jpg"
     }
 }
