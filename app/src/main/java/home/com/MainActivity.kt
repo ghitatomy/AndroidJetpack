@@ -11,7 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.tvName.text = "Dan Brown"
-        binding.tvEmail.text = "danbrown@gmail.com"
+
+        binding.contact = Contact("Dan Brown", "danbrown@gmail.com")
+
+        binding.handler = EventHandler(this)
     }
 }
