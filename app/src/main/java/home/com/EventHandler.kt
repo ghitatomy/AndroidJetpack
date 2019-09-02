@@ -7,7 +7,7 @@ open class EventHandler(context: Context) {
 
     val myContext = context
 
-    fun onButtonClick() {
-        Toast.makeText(myContext, "Hello", Toast.LENGTH_SHORT).show()
+    fun onButtonClick(name: String) {
+        Toast.makeText(myContext, "Hello $name", Toast.LENGTH_SHORT).show()
     }
 }
