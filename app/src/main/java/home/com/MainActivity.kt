@@ -1,5 +1,6 @@
 package home.com
 
+import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -8,8 +9,13 @@ import home.com.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var data: MainActivityDataGenerator
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val model = ViewModelProviders.of(this).get(MainActivityDataGenerator::class.java)
+        val myRandomNumber: String = model.getNumber()
 
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
@@ -22,6 +28,12 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG, "Owner onCreate ");
 
         lifecycle.addObserver(MainActivityObserver())
+
+//        data = MainActivityDataGenerator()
+//        val myRandomNumber: String = data.getNumber()
+        binding.tvNumber.text = myRandomNumber
+
+        Log.i(TAG, "Random Number Set ");
     }
 
     override fun onStart() {
