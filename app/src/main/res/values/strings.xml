@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android Jetpack</string>
+    <string name="name">Name</string>
+    <string name="email">email@gmail.com</string>
 </resources>
