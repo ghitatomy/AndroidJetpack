@@ -1,5 +1,7 @@
 package home.com
 
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
@@ -9,14 +11,13 @@ import home.com.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var data: MainActivityDataGenerator
+    lateinit var data: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val model = ViewModelProviders.of(this).get(MainActivityDataGenerator::class.java)
-        val myRandomNumber: String = model.getNumber()
-
+        val model = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
+        val myRandomNumber: MutableLiveData<String> = model.getNumber()
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         binding.contact = Contact("Dan Brown", "danbrown@gmail.com")
@@ -29,11 +30,14 @@ class MainActivity : AppCompatActivity() {
 
         lifecycle.addObserver(MainActivityObserver())
 
-//        data = MainActivityDataGenerator()
-//        val myRandomNumber: String = data.getNumber()
-        binding.tvNumber.text = myRandomNumber
+        myRandomNumber.observe(this, Observer { number ->
+            binding.tvNumber.text = number
+            Log.i(TAG, "Random Number Set ")
+        })
 
-        Log.i(TAG, "Random Number Set ");
+        binding.buttonRandom.setOnClickListener {
+            model.createNumber()
+        }
     }
 
     override fun onStart() {

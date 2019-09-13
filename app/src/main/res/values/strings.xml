@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Android Jetpack</string>
     <string name="click_me">CLICK ME!</string>
+    <string name="random_number">Random Number</string>
 </resources>
