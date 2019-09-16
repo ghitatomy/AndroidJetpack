@@ -7,6 +7,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.work.Data
 
 
 class SendWorker(context: Context, parameters: WorkerParameters) : Worker(context, parameters) {
@@ -14,8 +15,10 @@ class SendWorker(context: Context, parameters: WorkerParameters) : Worker(contex
         val taskData = inputData
         val taskDataString = taskData.getString(MainActivity.MESSAGE_STATUS)
 
+        val outPutData = Data.Builder().putString(WORK_RESULT, "Task Finished").build()
+
         showNotification("Work Manager", taskDataString ?: "Message Sent")
-        return Result.success()
+        return Result.success(outPutData)
     }
 
     private fun showNotification(task: String, desc: String) {
@@ -33,5 +36,9 @@ class SendWorker(context: Context, parameters: WorkerParameters) : Worker(contex
             .setContentText(desc)
             .setSmallIcon(R.mipmap.ic_launcher)
         manager.notify(1, builder.build())
+    }
+
+    companion object {
+        const val WORK_RESULT = "work_result"
     }
 }

@@ -35,6 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         workManager.getWorkInfoByIdLiveData(request.id).observe(this, Observer { workInfo ->
             workInfo?.let {
+                if (it.state.isFinished) {
+                    val outputData = it.outputData
+                    val taskResult = outputData.getString(SendWorker.WORK_RESULT)
+                    tvStatus.append(taskResult + "\n")
+                }
+
                 val state = workInfo.state
                 tvStatus.append(state.toString() + "\n")
             }
