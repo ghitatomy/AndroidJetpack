@@ -22,7 +22,8 @@ class ShopFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         b_about.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.about_destination)
+//            Navigation.findNavController(it).navigate(R.id.about_destination)
+            Navigation.findNavController(it).navigate(R.id.next_action)
         }
     }
 
