@@ -1,10 +1,11 @@
-package home.com
+package home.com.main
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable
 import android.databinding.BindingAdapter
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import home.com.BR
 
 class Contact(_name: String, _email: String) : BaseObservable() {
     @get:Bindable

@@ -1,24 +1,27 @@
-package home.com
+package home.com.main
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import home.com.R
+import home.com.StartActivity
 import home.com.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var data: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val model = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
         val myRandomNumber: MutableLiveData<String> = model.getNumber()
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this,
+            R.layout.activity_main
+        )
 
         binding.contact = Contact("Dan Brown", "danbrown@gmail.com")
 
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.imageUrl = "https://i.redd.it/lhw4vp5yoy121.jpg"
 
-        Log.i(TAG, "Owner onCreate ");
+        Log.i(TAG, "Owner onCreate ")
 
         lifecycle.addObserver(MainActivityObserver())
 
@@ -37,6 +40,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonRandom.setOnClickListener {
             model.createNumber()
+        }
+
+        binding.buttonToStartActivity.setOnClickListener{
+            intent = Intent(this, StartActivity::class.java)
+            this.startActivity(intent)
         }
     }
 

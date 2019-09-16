@@ -1,4 +1,4 @@
-package home.com
+package home.com.main
 
 import android.arch.lifecycle.ViewModel
 import android.util.Log
@@ -9,7 +9,7 @@ class MainActivityDataGenerator: ViewModel() {
     private lateinit var myRandomNumber: String
 
     fun getNumber(): String {
-        Log.i(TAG, "Get number");
+        Log.i(TAG, "Get number")
         if (!::myRandomNumber.isInitialized){
             this.createNumber()
         }
@@ -17,7 +17,7 @@ class MainActivityDataGenerator: ViewModel() {
     }
 
     fun createNumber() {
-        Log.i(TAG, "Create new number");
+        Log.i(TAG, "Create new number")
         val random = Random()
         myRandomNumber = "Number: " + (random.nextInt(10-1)+1)
     }

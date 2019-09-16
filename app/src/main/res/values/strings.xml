@@ -2,4 +2,12 @@
     <string name="app_name">Android Jetpack</string>
     <string name="click_me">CLICK ME!</string>
     <string name="random_number">Random Number</string>
+    <string name="start">Start</string>
+    <string name="cart">Cart</string>
+    <string name="shop">Shop</string>
+    <string name="about_us">About Us</string>
+    <string name="detail">We empower small and medium-sized businesses to reach millions of customers with a number of programmes that help boost their revenue, reach and productivity.</string>
+    <string name="home">Home</string>
+    <string name="start_activity">Go To Start</string>
+    <string name="card">Cart</string>
 </resources>

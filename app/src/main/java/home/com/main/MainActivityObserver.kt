@@ -1,4 +1,4 @@
-package home.com
+package home.com.main
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
