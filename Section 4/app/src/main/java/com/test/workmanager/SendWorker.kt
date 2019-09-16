@@ -11,7 +11,10 @@ import androidx.core.app.NotificationCompat
 
 class SendWorker(context: Context, parameters: WorkerParameters) : Worker(context, parameters) {
     override fun doWork(): Result {
-        showNotification("Work Manager", "Message Sent")
+        val taskData = inputData
+        val taskDataString = taskData.getString(MainActivity.MESSAGE_STATUS)
+
+        showNotification("Work Manager", taskDataString ?: "Message Sent")
         return Result.success()
     }
 
