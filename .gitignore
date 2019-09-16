@@ -2,8 +2,26 @@
 .gradle
 /local.properties
 /.idea/
-/Section 1/.idea/
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+
+/Section 1/*.iml
+/Section 1/.gradle
+/Section 1/local.properties
+/Section 1/.DS_Store
+/Section 1/build
+/Section 1/captures
+/Section 1/.externalNativeBuild
+/Section 1/.idea/
+
+
+/Section 2/*.iml
+/Section 2/.gradle
+/Section 2/local.properties
+/Section 2/.DS_Store
+/Section 2/build
+/Section 2/captures
+/Section 2/.externalNativeBuild
+/Section 2/.idea/
